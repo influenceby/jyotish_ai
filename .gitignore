@@ -1,0 +1,17 @@
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.backup*
+*.before_*
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Jyotish AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- BACKGROUND DECORATION -->
+<!-- ================================================= -->
+
+<div class="background-stars"></div>
+
+
+<!-- ================================================= -->
+<!-- BIRTH DETAILS SCREEN -->
+<!-- ================================================= -->
+
+
+<!-- ================================================= -->
+<!-- AUTH SCREEN -->
+<!-- ================================================= -->
+
+<div id="auth-screen" class="auth-container">
+
+    <div class="auth-card">
+
+        <div class="logo-circle">ॐ</div>
+
+        <h1 class="main-title">Jyotish AI</h1>
+
+        <p class="subtitle">
+            Login or create your account to begin your consultation
+        </p>
+
+        <!-- LOGIN -->
+        <div id="login-panel">
+
+            <h2 class="auth-heading">Welcome Back</h2>
+
+            <form id="login-form">
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="login-email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="start-button">
+                    Login ✨
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                New to Jyotish AI?
+                <button type="button" id="show-register">
+                    Create Account
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- REGISTER -->
+        <div id="register-panel" style="display:none;">
+
+            <h2 class="auth-heading">Create Account</h2>
+
+            <form id="register-form">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        id="register-name"
+                        placeholder="Enter your name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="register-email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        id="register-password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="start-button">
+                    Create Account ✨
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <button type="button" id="show-login">
+                    Login
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="birth-screen"
+    class="page-container hidden"
+>
+
+    <!-- LOGGED IN USER -->
+    <div class="birth-user-actions">
+
+        <span id="birth-logged-in-user">
+            👤 User
+        </span>
+
+        <button
+            id="birth-logout-btn"
+            type="button"
+        >
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- LEFT CONTENT -->
+
+    <div class="side-panel left-panel">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h2>Jyotish AI</h2>
+
+                <p>Ancient Wisdom. Modern Guidance.</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="wisdom-content">
+
+            <span class="small-title">
+                VEDIC GUIDANCE
+            </span>
+
+            <h1>
+                Discover the wisdom
+                written in your
+                life's journey.
+            </h1>
+
+            <div class="gold-line"></div>
+
+            <p>
+                Explore guidance for your career,
+                relationships, health, and life path.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN FORM -->
+    <!-- ================================================= -->
+
+    <div class="main-card">
+
+
+        <div class="logo-circle">
+            ॐ
+        </div>
+
+
+        <h1 class="main-title">
+            Jyotish AI
+        </h1>
+
+
+        <p class="subtitle">
+            Enter your birth details to begin your consultation
+        </p>
+
+
+        <form id="birth-form">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    👤 Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- GENDER -->
+
+            <div class="form-group">
+
+                <label>
+                    Gender
+                </label>
+
+
+                <select
+                    id="gender"
+                    required
+                >
+
+                    <option value="">
+                        Select gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div class="form-group">
+
+                <label for="date_of_birth">
+                    📅 Date of Birth
+                </label>
+
+                <input
+                    type="date"
+                    id="date_of_birth"
+                    required
+                >
+
+            </div>
+
+
+            <!-- TIME -->
+
+            <div class="form-group">
+
+                <label>
+                    🕐 Time of Birth
+                </label>
+
+
+                <div class="time-row">
+
+
+                    <select
+                        id="birth-hour"
+                        required
+                    >
+
+                        <option value="">
+                            Hour
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="birth-minute"
+                        required
+                    >
+
+                        <option value="">
+                            Minute
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="birth-ampm"
+                        required
+                    >
+
+                        <option value="">
+                            AM / PM
+                        </option>
+
+                        <option value="AM">
+                            AM
+                        </option>
+
+                        <option value="PM">
+                            PM
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- PLACE -->
+
+            <div class="form-group">
+
+                <label for="place_of_birth">
+                    📍 Place of Birth
+                </label>
+
+                <input
+                    type="text"
+                    id="place_of_birth"
+                    placeholder="Example: Bhubaneswar, India"
+                    required
+                >
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="start-button"
+            >
+
+                ✦ Start Consultation
+                →
+
+            </button>
+
+
+        </form>
+
+
+        <p class="privacy">
+
+            🔒 Your birth information is private and secure
+
+        </p>
+
+
+        <div class="bottom-tags">
+
+            <span>Knowledge</span>
+
+            <span>•</span>
+
+            <span>Guidance</span>
+
+            <span>•</span>
+
+            <span>Inner Peace</span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- RIGHT CONTENT -->
+    <!-- ================================================= -->
+
+    <div class="side-panel right-panel">
+
+
+        <div class="top-links">
+
+            Guidance
+
+            <span>|</span>
+
+            Clarity
+
+            <span>|</span>
+
+            Better Decisions
+
+        </div>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ★
+                </div>
+
+                <div>
+
+                    <h3>Career</h3>
+
+                    <p>
+                        Find the right direction
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ♡
+                </div>
+
+                <div>
+
+                    <h3>Relationships</h3>
+
+                    <p>
+                        Understand your connections
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✿
+                </div>
+
+                <div>
+
+                    <h3>Health</h3>
+
+                    <p>
+                        Build a balanced life
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ₹
+                </div>
+
+                <div>
+
+                    <h3>Finance</h3>
+
+                    <p>
+                        Plan with confidence
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="quote">
+
+            “The stars may guide you,
+            but your choices shape your journey.”
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CHAT SCREEN -->
+<!-- ================================================= -->
+
+<div
+    id="chat-screen"
+    class="chat-container hidden"
+>
+
+    <!-- CHAT HEADER -->
+
+    <div class="chat-header">
+
+        <div>
+
+            <h2>
+                ✦ Jyotish AI
+            </h2>
+
+            <p>
+                Your personal Vedic Life Counselor
+            </p>
+
+        </div>
+
+        <div class="chat-user-actions">
+
+            <span
+                id="logged-in-user"
+                class="logged-in-user"
+            >
+                👤 User
+            </span>
+
+            <button
+                id="download-chart-btn"
+                class="download-button"
+                type="button"
+            >
+                📄 Download Chart
+            </button>
+
+            <button
+                id="change-details-btn"
+                class="change-button"
+                type="button"
+            >
+                Change Birth Details
+            </button>
+
+            <button
+                id="logout-btn"
+                class="logout-button"
+                type="button"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHAT BODY -->
+
+    <div class="chat-layout">
+
+
+        <!-- ============================================== -->
+        <!-- PREVIOUS CHATS SIDEBAR -->
+        <!-- ============================================== -->
+
+        <aside
+            id="conversation-sidebar"
+            class="conversation-sidebar"
+        >
+
+            <div class="conversation-sidebar-header">
+
+                <h3>
+                    Previous Chats
+                </h3>
+
+                <button
+                    id="new-chat-btn"
+                    class="new-chat-button"
+                    type="button"
+                >
+                    + New Chat
+                </button>
+
+            </div>
+
+
+            <div
+                id="conversation-list"
+                class="conversation-list"
+            >
+
+                <div class="conversation-loading">
+                    Loading chats...
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ============================================== -->
+        <!-- CURRENT CHAT -->
+        <!-- ============================================== -->
+
+        <main class="chat-main">
+
+            <div
+                id="chat-messages"
+                class="chat-messages"
+            >
+            </div>
+
+
+            <form
+                id="chat-form"
+                class="chat-form"
+            >
+
+                <input
+                    type="text"
+                    id="user-question"
+                    placeholder="Ask anything about your life..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit">
+                    Send ✦
+                </button>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</div>
+</div>
+
+
+<script src="/static/script.js"></script>
+
+
+</body>
+
+</html>

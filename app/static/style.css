@@ -1,0 +1,1478 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+
+    color: #292344;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 204, 139, 0.55),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(132, 111, 190, 0.65),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8e6c5,
+            #d8c5e6,
+            #7880b5
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND STARS
+========================================================= */
+
+.background-stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.35;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page-container {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        minmax(480px, 650px)
+        1fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 40px 60px;
+
+}
+
+
+/* =========================================================
+   SIDE PANELS
+========================================================= */
+
+.side-panel {
+
+    color: #ffffff;
+
+    min-height: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.brand-icon {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd27a,
+            #b8873d
+        );
+
+    color: #38235d;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+.brand h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 28px;
+
+}
+
+
+.brand p {
+
+    font-size: 12px;
+
+    opacity: 0.85;
+
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.left-panel {
+
+    justify-content: space-between;
+
+}
+
+
+.wisdom-content {
+
+    margin-top: auto;
+
+    margin-bottom: 80px;
+
+    max-width: 320px;
+
+}
+
+
+.small-title {
+
+    color: #ffd47c;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.wisdom-content h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    margin-top: 20px;
+
+}
+
+
+.wisdom-content p {
+
+    margin-top: 25px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    opacity: 0.9;
+
+}
+
+
+.gold-line {
+
+    width: 100px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #ffd47c,
+            transparent
+        );
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.main-card {
+
+    width: 100%;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, 0.65);
+
+    border-radius: 28px;
+
+    padding: 38px 46px;
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(42, 28, 77, 0.28);
+
+}
+
+
+.logo-circle {
+
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+
+    color: #ffffff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #9b6cc3,
+            #514a9f
+        );
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(81, 74, 159, 0.35);
+
+}
+
+
+.main-title {
+
+    text-align: center;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 46px;
+
+    color: #32275d;
+
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    margin-bottom: 30px;
+
+    color: #6d6680;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: #32275d;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    height: 52px;
+
+    border-radius: 12px;
+
+    border:
+
+        1px solid
+        #d7d0e4;
+
+    background:
+
+        rgba(255, 255, 255, 0.9);
+
+    padding:
+
+        0 16px;
+
+    font-size: 15px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    color: #32275d;
+
+    outline: none;
+
+    transition:
+        0.25s;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color:
+        #7a5cb6;
+
+    box-shadow:
+
+        0 0 0 4px
+        rgba(122, 92, 182, 0.12);
+
+}
+
+
+/* =========================================================
+   TIME ROW
+========================================================= */
+
+.time-row {
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+        1fr
+        120px;
+
+    gap: 10px;
+
+}
+
+
+.time-row select {
+
+    height: 52px;
+
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+.start-button {
+
+    width: 100%;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    margin-top: 8px;
+
+    cursor: pointer;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #514a9f,
+            #8c5caf
+        );
+
+    box-shadow:
+
+        0 12px 30px
+        rgba(81, 74, 159, 0.35);
+
+    transition:
+        0.3s;
+
+}
+
+
+.start-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 18px 35px
+        rgba(81, 74, 159, 0.45);
+
+}
+
+
+/* =========================================================
+   PRIVACY
+========================================================= */
+
+.privacy {
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    color: #777083;
+
+}
+
+
+.bottom-tags {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    font-size: 13px;
+
+    color: #716886;
+
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.right-panel {
+
+    justify-content: space-between;
+
+}
+
+
+.top-links {
+
+    text-align: right;
+
+    font-size: 14px;
+
+    opacity: 0.9;
+
+}
+
+
+.top-links span {
+
+    margin: 0 8px;
+
+    color: #ffd47c;
+
+}
+
+
+.features {
+
+    margin-top: 100px;
+
+}
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.feature-icon {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    color: #ffd77d;
+
+    background:
+
+        rgba(53, 37, 91, 0.45);
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+}
+
+
+.feature h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 20px;
+
+}
+
+
+.feature p {
+
+    font-size: 13px;
+
+    opacity: 0.85;
+
+}
+
+
+.quote {
+
+    margin-top: auto;
+
+    text-align: right;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 19px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   CHAT SCREEN
+========================================================= */
+
+.chat-container {
+
+    width:
+
+        min(
+            1000px,
+            94%
+        );
+
+    min-height:
+        90vh;
+
+    margin:
+        5vh auto;
+
+    background:
+
+        rgba(255, 255, 255, 0.92);
+
+    border-radius:
+        24px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(30, 20, 60, 0.3);
+
+}
+
+
+.chat-header {
+
+    padding:
+
+        22px 30px;
+
+    display:
+
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    color:
+        white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #3f397d,
+            #7a4c96
+        );
+
+}
+
+
+.chat-header h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+}
+
+
+.chat-header p {
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+}
+
+
+.change-button {
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.4);
+
+    background:
+
+        rgba(255,255,255,0.15);
+
+    color:
+
+        white;
+
+    padding:
+
+        10px 18px;
+
+    border-radius:
+        10px;
+
+    cursor:
+        pointer;
+
+}
+
+
+.chat-messages {
+
+    flex:
+        1;
+
+    padding:
+        30px;
+
+    overflow-y:
+        auto;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #faf8ff,
+            #f3eff8
+        );
+
+}
+
+
+.message {
+
+    max-width:
+        75%;
+
+    padding:
+        15px 18px;
+
+    margin-bottom:
+        16px;
+
+    border-radius:
+        18px;
+
+    white-space:
+        pre-wrap;
+
+    line-height:
+        1.6;
+
+}
+
+
+.ai-message {
+
+    background:
+        white;
+
+    color:
+        #342d52;
+
+    border-bottom-left-radius:
+        5px;
+
+    box-shadow:
+
+        0 5px 20px
+        rgba(0,0,0,0.08);
+
+}
+
+
+.user-message {
+
+    margin-left:
+        auto;
+
+    color:
+        white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #514a9f,
+            #8757a6
+        );
+
+    border-bottom-right-radius:
+        5px;
+
+}
+
+
+.chat-form {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    padding:
+        20px;
+
+    background:
+        white;
+
+    border-top:
+
+        1px solid
+        #eee;
+
+}
+
+
+.chat-form input {
+
+    flex:
+        1;
+
+}
+
+
+.chat-form button {
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    padding:
+        0 25px;
+
+    cursor:
+        pointer;
+
+    color:
+        white;
+
+    font-weight:
+        600;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #514a9f,
+            #8c5caf
+        );
+
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .page-container {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            30px;
+
+    }
+
+
+    .side-panel {
+
+        display:
+            none;
+
+    }
+
+
+    .main-card {
+
+        max-width:
+            650px;
+
+        margin:
+            auto;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .page-container {
+
+        padding:
+            15px;
+
+    }
+
+
+    .main-card {
+
+        padding:
+            28px 20px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .main-title {
+
+        font-size:
+            38px;
+
+    }
+
+
+    .time-row {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .chat-header {
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .message {
+
+        max-width:
+            90%;
+
+    }
+
+}
+
+/* ================================================= */
+/* AUTH SCREEN */
+/* ================================================= */
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 28px;
+    padding: 45px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.auth-heading {
+    text-align: center;
+    margin: 25px 0;
+    color: #3d356b;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-switch button {
+    border: none;
+    background: none;
+    color: #6c4fa3;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ============================================================
+   CHAT USER ACTIONS
+============================================================ */
+
+.chat-user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logged-in-user {
+    font-weight: 600;
+    color: #4a3b72;
+    white-space: nowrap;
+}
+
+
+.logout-button {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.logout-button:hover {
+    opacity: 0.85;
+}
+
+
+
+/* ============================================================
+   BIRTH SCREEN USER MENU
+============================================================ */
+
+#birth-screen {
+    position: relative;
+}
+
+.birth-user-actions {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    z-index: 100;
+}
+
+#birth-logged-in-user {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#birth-logout-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: 600;
+
+    background: #ffffff;
+    color: #4a3b72;
+}
+
+#birth-logout-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ============================================================
+   CHAT HISTORY / CONVERSATION SIDEBAR
+   ============================================================ */
+
+.chat-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.conversation-sidebar {
+    width: 280px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(10, 10, 18, 0.45);
+}
+
+.conversation-sidebar-header {
+    padding: 18px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.conversation-sidebar-header h3 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.new-chat-button {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    font-size: 14px;
+}
+
+.new-chat-button:hover {
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.conversation-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.conversation-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+}
+
+.conversation-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.conversation-item.active {
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.conversation-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conversation-meta {
+    margin-top: 4px;
+    font-size: 11px;
+    opacity: 0.55;
+}
+
+.conversation-loading,
+.conversation-empty {
+    padding: 20px 12px;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.chat-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-main .chat-messages {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .chat-layout {
+        flex-direction: column;
+    }
+
+    .conversation-sidebar {
+        width: 100%;
+        min-width: 0;
+        max-height: 190px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .conversation-sidebar-header {
+        padding: 10px 12px;
+    }
+
+    .conversation-sidebar-header h3 {
+        display: inline-block;
+        margin: 0 10px 0 0;
+    }
+
+    .new-chat-button {
+        width: auto;
+        padding: 7px 10px;
+    }
+
+    .conversation-list {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .conversation-item {
+        min-width: 190px;
+        margin-bottom: 0;
+    }
+}
+
+
+/* ============================================================
+   CHAT SCREEN - FULL WIDTH MODE
+   Conversation history is kept in the backend but the
+   sidebar is hidden from the user-facing chat screen.
+   ============================================================ */
+
+.conversation-sidebar {
+    display: none !important;
+}
+
+.chat-layout {
+    display: block;
+}
+
+.chat-main {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* Full-width conversation area */
+.chat-main .chat-messages {
+    width: 100%;
+}
+
+
+/* ============================================================
+   DOWNLOAD CHART BUTTON
+   ============================================================ */
+
+.download-button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    background: #7c3aed;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.download-button:hover {
+    background: #6d28d9;
+    transform: translateY(-1px);
+}
+
+.download-button:active {
+    transform: translateY(0);
+}
+
+.download-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Improve logged-in user visibility */
+.logged-in-user {
+    color: #ffffff !important;
+    font-weight: 600;
+    opacity: 1;
+}
+
+
+/* ============================================================
+   PROFESSIONAL AI MARKDOWN TABLE
+   ============================================================ */
+
+.markdown-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 22px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid rgba(93, 82, 145, 0.16);
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(40, 32, 80, 0.06);
+    -webkit-overflow-scrolling: touch;
+}
+
+.markdown-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #373252;
+}
+
+.markdown-table th {
+    padding: 15px 16px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 700;
+    color: #30294d;
+    background: #f4f1fb;
+    border-bottom: 1px solid rgba(93, 82, 145, 0.18);
+    border-right: 1px solid rgba(93, 82, 145, 0.10);
+    white-space: normal;
+}
+
+.markdown-table td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: top;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(93, 82, 145, 0.10);
+    border-right: 1px solid rgba(93, 82, 145, 0.08);
+}
+
+.markdown-table th:last-child,
+.markdown-table td:last-child {
+    border-right: none;
+}
+
+.markdown-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.markdown-table tbody tr:nth-child(even) td {
+    background: #faf9fd;
+}
+
+.markdown-table tbody tr:hover td {
+    background: #f7f5fc;
+}
+
+.markdown-table strong {
+    font-weight: 700;
+    color: #30294d;
+}
+
+.markdown-table em {
+    color: #655d7c;
+}
+
+.markdown-table br {
+    display: block;
+    content: "";
+    margin-bottom: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .markdown-table-wrapper {
+        margin: 16px 0;
+        border-radius: 12px;
+    }
+
+    .markdown-table {
+        min-width: 680px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .markdown-table th,
+    .markdown-table td {
+        padding: 12px;
+    }
+}
+

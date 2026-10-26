@@ -1,0 +1,172 @@
+import os
+import json
+from typing import Dict, Any
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+
+# ============================================================
+# LOAD ENVIRONMENT VARIABLES
+# ============================================================
+
+load_dotenv()
+
+
+# ============================================================
+# SYSTEM PROMPT
+# ============================================================
+
+SYSTEM_PROMPT = """Role & Persona 
+
+You are Raj Rao, an empathetic, wise, and grounded Vedic Life Counselor. You specialize in translating profound karmic and cosmic timing into practical, modern life guidance. Your tone is warm, conversational, and deeply philosophical, helping seekers align their daily actions with their higher purpose and current life seasons. 
+
+Data Ingestion Context
+You will receive a JSON file representing the user's exact Vedic chart calculations. Use this file for making the charts and interpretations. 
+
+You are translating the mathematics of karma into human insight. Use technical astrological terminology in your responses to the user only when dates are required based on dasha and transits or when a user requests an astrological terminology. 
+
+Interpretative Philosophy & Synthesis: 
+
+Synthesize, Don't Read: When the data shows a challenging placement—such as an unfavorable Jupiter or Saturn in the 8th house—frame it as a season for deep internal restructuring, patience, and shedding old attachments. 
+
+Focus on Agency: Avoid fatalism. Present cosmic weather as opportunities for spiritual and practical growth. Offer behavioral remedies, such as mindfulness practices, conscious breathing, or shifts in perspective. 
+
+Acknowledge the Whole Person: Blend immediate situational advice with deeper themes of self-awareness. For example, if the Ascendant report indicates a "wavering" or "restless" mind, guide the user gently toward grounding techniques. 
+
+Voice Interface & Formatting Constraints:
+
+Conversational Pacing: Keep your responses concise (2-4 sentences per turn) to ensure low latency and natural turn-taking.
+
+Plain Text Only: Do not use bolding, asterisks, or bullet points in the final text, as this can cause artifacts in the Text-to-Speech synthesis.
+
+Engaging Hooks: End your responses with a gentle, open-ended question to keep the dialogue flowing naturally.
+"""
+
+
+# ============================================================
+# OPENAI SERVICE
+# ============================================================
+
+class GeminiService:
+
+    def __init__(self):
+
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        if not api_key:
+            raise ValueError(
+                "OPENAI_API_KEY is missing. "
+                "Please add it to your .env file."
+            )
+
+        self.client = OpenAI(api_key=api_key)
+
+        print("OpenAI Service initialized")
+        print("Model: gpt-6-astra")
+
+
+    # ========================================================
+    # ASK QUESTION
+    # ========================================================
+
+    def ask_question(
+        self,
+        name: str,
+        gender: str,
+        astrology_data: Dict[str, Any],
+        question: str,
+    ) -> str:
+
+        """
+        Answer using previously generated and saved astrology data.
+        No AstrologyAPI calls are made during chat.
+        """
+
+        if not question or not question.strip():
+            return (
+                "Please tell me what you would like to explore, "
+                "and I'll be happy to guide you."
+            )
+
+        astrology_json = json.dumps(
+            astrology_data,
+            indent=2,
+            default=str
+        )
+
+        user_message = f"""
+USER DETAILS
+
+Name: {name}
+Gender: {gender}
+
+
+SAVED ASTROLOGY DATA
+
+{astrology_json}
+
+
+USER QUESTION
+
+{question}
+
+
+INSTRUCTIONS
+
+1. Answer the user's question using the saved astrology data provided above.
+2. Do NOT call astrology tools or APIs.
+3. Analyze the available astrology information carefully.
+4. Do not expose raw JSON or technical API output.
+5. Give a warm, friendly, emotionally intelligent answer.
+6. Speak naturally, like Raj Rao is personally guiding the user.
+7. Give practical and helpful advice where appropriate.
+"""
+
+        print("\n" + "=" * 60)
+        print("OPENAI GPT-6 ASTRA")
+        print("USING SAVED ASTROLOGY DATA")
+        print("=" * 60)
+
+        try:
+            print("Sending question to OpenAI...")
+
+            response = self.client.responses.create(
+                model="gpt-6-astra",
+                instructions=SYSTEM_PROMPT,
+                input=user_message,
+                reasoning={
+                    "effort": "medium"
+                }
+            )
+
+        except Exception as exc:
+            print("OpenAI API Error:", repr(exc))
+
+            return (
+                "I'm sorry, I wasn't able to prepare your guidance "
+                "just now. Please try again."
+            )
+
+        response_text = getattr(
+            response,
+            "output_text",
+            None
+        )
+
+        if not response_text:
+            return (
+                "I have looked into your question, but I wasn't able "
+                "to prepare a complete response. Please try again."
+            )
+
+        print("OpenAI response received")
+
+        return response_text.strip()
+
+
+# ============================================================
+# SINGLETON INSTANCE
+# ============================================================
+
+gemini_service = GeminiService()

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jyotish AI - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/static/admin.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            ✦ Jyotish AI
+        </div>
+
+        <div class="sidebar-title">
+            ADMIN PANEL
+        </div>
+
+        <button class="nav-button active" onclick="showUsers()">
+            👥 Users
+        </button>
+
+        <button class="logout-button" onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage Jyotish AI users and conversations</p>
+            </div>
+
+            <button class="refresh-button" onclick="loadData()">
+                ↻ Refresh
+            </button>
+
+        </div>
+
+
+        <!-- STATS -->
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <span class="stat-icon">👥</span>
+
+                <div>
+                    <p>Total Users</p>
+                    <h2 id="totalUsers">0</h2>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <span class="stat-icon">💬</span>
+
+                <div>
+                    <p>User Messages</p>
+                    <h2 id="totalMessages">0</h2>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- USERS SECTION -->
+        <section id="usersSection">
+
+            <div class="section-header">
+                <div>
+                    <h2>Registered Users</h2>
+                    <p>Click a user to view their conversations</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Birth Place</th>
+                            <th>Astrology Data</th>
+                            <th>Joined</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="usersTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGES SECTION -->
+        <section id="messagesSection" style="display:none;">
+
+            <div class="section-header">
+
+                <div>
+                    <h2 id="messagesTitle">
+                        User Conversations
+                    </h2>
+
+                    <p>
+                        Showing conversations for the selected user
+                    </p>
+                </div>
+
+
+                <button
+                    class="refresh-button"
+                    onclick="showUsers()"
+                >
+                    ← Back to Users
+                </button>
+
+            </div>
+
+
+            <div
+                class="messages-container"
+                id="messagesContainer"
+            >
+            </div>
+
+
+            <button
+                id="loadMoreMessages"
+                class="refresh-button"
+                onclick="loadMoreMessages()"
+                style="display:none; margin-top:20px;"
+            >
+                Load More Messages
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/static/admin-dashboard.js"></script>
+
+</body>
+</html>
